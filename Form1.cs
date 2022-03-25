@@ -77,8 +77,8 @@ namespace GeomComputTema3
             Pen yellowPen = new Pen(Color.Yellow, 2);
             List<Point> pointsList = new List<Point>();
             Random rnd = new Random();
-            int pointsNr = rnd.Next(2, 50);
-            float minCircleDiam = panel1.Height;
+            int pointsNr = rnd.Next(2, 80);
+           float minCircleDiam = panel1.Height;
             float maxCircleDiam = panel1.Height;
             Point MD1 = new Point();   //MD1 and MD2 are two opposite points on the edge of the biggest circle
             MD1.X = 0;
@@ -90,8 +90,8 @@ namespace GeomComputTema3
             Point minCircleCenter = Middle(MD1, MD2);  
             while (pointsNr > 0)
             {
-                int x = rnd.Next(panel1.Height);
-                int y = rnd.Next(panel1.Height);
+                float x = rnd.Next(panel1.Height);
+                float y = rnd.Next(panel1.Height);
                 Point P = new Point();
                 P.X = x;
                 P.Y = y;
@@ -113,7 +113,7 @@ namespace GeomComputTema3
             }*/
             
             {
-                for (int i = 0; i < pointsList.Count - 1; i++)    //go through all pairs of points that could
+                for (int i = 0; i < pointsList.Count - 1; i++)    //go over all pairs of points that could
                                                                   //generate the minimal circle
                 {
                     for (int j = i + 1; j < pointsList.Count; j++)
@@ -121,11 +121,7 @@ namespace GeomComputTema3
                         Point Center = Middle(pointsList[i], pointsList[j]);
                         float diameter = Distance(pointsList[i], pointsList[j]);
                        //  g.DrawEllipse(yellowPen, Center.X - diameter / 2, Center.Y - diameter / 2, diameter, diameter);
-                       /* if (ContainsAllPoints(pointsList, Center, diameter) == false)
-                        {
-                            g.DrawEllipse(redPen, Center.X - diameter / 2, Center.Y - diameter / 2, diameter, diameter);
-
-                        }*/
+                       
                         if (ContainsAllPoints(pointsList, Center, diameter) && diameter < minCircleDiam)
                         {
                             minCircleDiam = diameter;
@@ -135,7 +131,7 @@ namespace GeomComputTema3
                         }
                     }
                 }
-                for (int i = 0; i < pointsList.Count - 2; i++)    //go through all combinations of three points that 
+                for (int i = 0; i < pointsList.Count - 2; i++)    //go over all combinations of three points that 
                 {                                              //could generate the minimal circle
                     for (int j = i + 1; j < pointsList.Count - 1; j++)
                     {
@@ -184,7 +180,7 @@ namespace GeomComputTema3
         /// <returns></returns>
         private static Point Middle(Point A, Point B)
         {
-            Point C = new Point();
+           Point C = new Point();
             C.X = (A.X + B.X) / 2;
             C.Y = (A.Y + B.Y) / 2;
             return C;
@@ -199,15 +195,15 @@ namespace GeomComputTema3
         private static Point CircleCenter(Point A, Point B, Point C)
         {
             float a = A.X * (B.Y - C.Y) - A.Y * (B.X - C.X) + B.X * C.Y - C.X * B.Y;
-            float b = (A.X * A.X + A.Y * A.Y) * (C.Y - B.Y)
+           float b = (A.X * A.X + A.Y * A.Y) * (C.Y - B.Y)
                     + (B.X * B.X + B.Y * B.Y) * (A.Y - C.Y)
                     + (C.X * C.X + C.Y * C.Y) * (B.Y - A.Y);
-            float c = (A.X * A.X + A.Y * A.Y) * (B.X - C.X)
+           float c = (A.X * A.X + A.Y * A.Y) * (B.X - C.X)
                     + (B.X * B.X + B.Y * B.Y) * (C.X - A.X)
                     + (C.X * C.X + C.Y * C.Y) * (A.X - B.X);
             Point Center = new Point();
-            Center.X = (int)(-b / (2 * a));
-            Center.Y = (int)(-c / (2 * a));
+            Center.X = (-b / (2 * a));
+            Center.Y = (-c / (2 * a));
             return Center;
         }
         /// <summary>
