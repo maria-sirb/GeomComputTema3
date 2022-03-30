@@ -23,54 +23,7 @@ namespace GeomComputTema3
         /// <param name="e"></param>
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            /*  Graphics g = e.Graphics;
-              Pen redPen = new Pen(Color.Red, 2);
-              Pen bluePen = new Pen(Color.Blue, 2);
-              List<Point> pointsList = new List<Point>();
-              Random rnd = new Random();
-              Point D1 = new Point();
-              Point D2 = new Point();
-              int pointsNr = rnd.Next(70);
-              float maxDist = 0;
-              float maxCircleDiam = panel1.Height;
-              Point MD1 = new Point();
-              MD1.X = 0;
-              MD1.Y = panel1.Height / 2;
-              Point MD2 = new Point();
-              MD2.X = panel1.Height;
-              MD2.Y = panel1.Height / 2;
-              Point MaxCircleCenter = Middle(MD1, MD2);
-              while(pointsNr > 0)
-              {
-                  int x = rnd.Next(panel1.Height);
-                  int y = rnd.Next(panel1.Height);
-                  Point P = new Point();
-                  P.X = x;
-                  P.Y = y;
-                  if (Distance(P, MaxCircleCenter) <= panel1.Height / 2)
-                  { g.DrawEllipse(redPen, x, y, 2, 2);
-
-                      pointsList.Add(P);
-
-                      pointsNr--;
-                  }
-              }
-              for(int i = 0; i < pointsList.Count; i++)
-              {
-                  for(int j = 0; j < pointsList.Count; j++)
-                  {
-                      if(Distance(pointsList[i], pointsList[j]) > maxDist)
-                      {
-                          maxDist = Distance(pointsList[i], pointsList[j]);
-                          D1 = pointsList[i];
-                          D2 = pointsList[j];
-
-                      }
-                  }
-              }
-              Point M = Middle(D1, D2);
-
-              g.DrawEllipse(bluePen, M.X - maxDist / 2, M.Y - maxDist / 2 , maxDist, maxDist);*/
+           
             Graphics g = e.Graphics;
             Pen redPen = new Pen(Color.Red, 3);
             Pen bluePen = new Pen(Color.Blue, 2);
@@ -105,12 +58,7 @@ namespace GeomComputTema3
                     pointsNr--;
                 }
             }
-           /* if (pointsList.Count == 2)
-            {
-                Point Center = Middle(pointsList[0], pointsList[1]);
-                float diameter = Distance(pointsList[0], pointsList[1]);
-                g.DrawEllipse(bluePen, minCircleCenter.X - minCircleDiam / 2, minCircleCenter.Y - minCircleDiam / 2, minCircleDiam, minCircleDiam);
-            }*/
+           
             
             {
                 for (int i = 0; i < pointsList.Count - 1; i++)    //go over all pairs of points that could
