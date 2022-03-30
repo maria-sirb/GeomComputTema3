@@ -27,7 +27,7 @@ namespace GeomComputTema3
             Graphics g = e.Graphics;
             Pen redPen = new Pen(Color.Red, 3);
             Pen bluePen = new Pen(Color.Blue, 2);
-            Pen yellowPen = new Pen(Color.Yellow, 2);
+            
             List<Point> pointsList = new List<Point>();
             Random rnd = new Random();
             int pointsNr = rnd.Next(2, 80);
@@ -93,13 +93,13 @@ namespace GeomComputTema3
                             Point Center = CircleCenter(A, B, C);
 
                             float diameter = 2 * Distance(Center, A);
-                           //  g.DrawEllipse(yellowPen, Center.X - diameter / 2, Center.Y - diameter / 2, diameter, diameter);
+                          
                             if (ContainsAllPoints(pointsList, Center, diameter) && diameter < minCircleDiam)
                             {
                                 minCircleDiam = diameter;
                                 minCircleCenter = Center;
 
-                              //  g.DrawEllipse(yellowPen, minCircleCenter.X - minCircleDiam / 2, minCircleCenter.Y - minCircleDiam / 2, minCircleDiam, minCircleDiam);
+                             
                             }
                         }
                     }
